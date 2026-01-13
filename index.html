@@ -14,25 +14,26 @@
     .attribution { font-size: 11px; text-align: center; }
     .attribution a { color: hsl(228, 45%, 44%); }
   </style>
+  <script src="./index.js" defer></script>
 </head>
 <body>
-  <form class="form-container" onsubmit="">
+  <form class="form-container" id="form">
     <h2>Contact Us</h2>
     <div class="name-container">
       <div class="field name-field">
       <label for="firstName">First Name <span aria-hidden="true">*</span></label>
-      <input type="text" required class="text-input">
+      <input type="text" required class="text-input" id="firstName">
       </div>
      <div class="field name-field">
        <label for="lastName">last Name <span aria-hidden="true">*</span></label>
-      <input type="text" required class="text-input">
+      <input type="text" required class="text-input" id="lastName">
      </div>
     </div>
     <div class="field">
       <label for="email">Email Address <span aria-hidden="true">*</span></label>
-       <input type="text" required class="text-input">
+       <input type="text" required class="text-input" id="email">
     </div>
-   <fieldset class="radio-group">
+   <fieldset class="radio-group" id="queryType">
   <label>Query Type <span>*</span></label>
 
     <div class="radio-card-container">
@@ -58,7 +59,7 @@
      <input type="checkbox" id="consent" name="consent" required>
     I consent to being contracted by the team
   </label>
-  <button class="submit-btn">Submit</button>
+  <button type="submit" class="submit-btn">Submit</button>
   </form>
 </body>
 </html>
