@@ -19,11 +19,11 @@
   <form class="form-container" onsubmit="">
     <h2>Contact Us</h2>
     <div class="name-container">
-      <div class="field">
+      <div class="field name-field">
       <label for="firstName">First Name <span aria-hidden="true">*</span></label>
       <input type="text" required class="text-input">
       </div>
-     <div class="field">
+     <div class="field name-field">
        <label for="lastName">last Name <span aria-hidden="true">*</span></label>
       <input type="text" required class="text-input">
      </div>
@@ -33,11 +33,10 @@
        <input type="text" required class="text-input">
     </div>
    <fieldset class="radio-group">
-  <legend>
-    Query Type <span aria-hidden="true">*</span>
-  </legend>
+  <label>Query Type <span>*</span></label>
 
-  <label class="radio-card">
+    <div class="radio-card-container">
+       <label class="radio-card">
     <input type="radio" name="queryType" value="general" required>
     <span>General Enquiry</span>
   </label>
@@ -46,19 +45,20 @@
     <input type="radio" name="queryType" value="support">
     <span>Support Request</span>
   </label>
+    </div>
    </fieldset>
 
    <div class="field">
     <label for="message">Message <span aria-hidden="true">*</span></label>
-    <textarea id="message" name="message" required
+    <textarea id="message" rows="5" name="message" required
     placeholder="Enter your message"></textarea>
    </div>
     
-  <label >
+  <label class="consent-label">
      <input type="checkbox" id="consent" name="consent" required>
-    i consent to being contracted by the team
+    I consent to being contracted by the team
   </label>
-  <button>Submit</button>
+  <button class="submit-btn">Submit</button>
   </form>
 </body>
 </html>

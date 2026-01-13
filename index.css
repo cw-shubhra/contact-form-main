@@ -1,12 +1,27 @@
+
+@font-face {
+   font-family: "karla";
+   src: url("/assets/fonts/static/Karla-Regular.ttf") format("truetype");
+}
+
 body {
     background: #e2f1e7;
-
     height:100vh;
-
+    font-family: "karla";
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
+input textarea {
+    border: solid 2px #8f9294;
+    border-radius: 20px;
+}
+
+label {
+    font-size: 0.8rem;
+}
+
 
 .form-container {
     background-color: #ffffff;
@@ -15,7 +30,7 @@ body {
     padding: 2rem;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
 }
 
 h2{
@@ -35,6 +50,10 @@ h2{
   gap: 0.25rem; 
 }
 
+.name-field {
+    width: 45%;
+}
+
 .text-input{
     width: 100%;
     height: 1.5rem;
@@ -48,7 +67,13 @@ h2{
 
 .radio-group {
   display: flex;
-  gap: 1rem;
+  flex-direction: column;
+  gap:0.5rem
+}
+
+.radio-card-container {
+    display: flex;
+    gap: 1rem;
 }
 
 .radio-card {
@@ -56,6 +81,20 @@ h2{
   display: flex;
   align-items: center;
   border: solid 1px black;
-height: 1.5rem;
+  padding: 1rem 0.2rem;
+}
 
+.submit-btn {
+    width: 100%;
+    padding: 1rem;
+    background: #0c7d69;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    border-radius: 10px;
+}
+
+.consent-label {
+    display: flex;
+    align-items: center;
 }
