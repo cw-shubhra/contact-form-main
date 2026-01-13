@@ -1,3 +1,11 @@
 body {
     background: #e2f1e7;
 }
+
+.form-container {
+    background-color: white;
+    width: 400px;
+    height: 600px;
+    margin:auto;
+
+}
