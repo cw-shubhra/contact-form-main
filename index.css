@@ -16,10 +16,19 @@ body {
 input textarea {
     border: solid 2px #8f9294;
     border-radius: 20px;
+    
 }
+
+input:focus-visible,
+textarea:focus-visible {
+  outline: none;
+
+}
+
 
 label {
     font-size: 0.8rem;
+    color: #8c9595;
 }
 
 
@@ -31,6 +40,7 @@ label {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    border-radius: 10px;
 }
 
 h2{
@@ -80,8 +90,9 @@ h2{
   flex: 1;
   display: flex;
   align-items: center;
-  border: solid 1px black;
-  padding: 1rem 0.2rem;
+  padding: 0.6rem 0.2rem;
+  border: solid 1px #8f9294;
+  border-radius: 10px;
 }
 
 .submit-btn {
@@ -97,4 +108,5 @@ h2{
 .consent-label {
     display: flex;
     align-items: center;
+    gap: 5px;
 }
