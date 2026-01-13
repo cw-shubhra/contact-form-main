@@ -28,10 +28,10 @@ function checkValidation() {
         console.log("email does not exists");
         return false;
     }
-    // if(!emailAddress.includes("@")) {
-    //     console.log("Please enter a valid email Address");
-    //     return false;
-    // }
+    if(!emailAddress.toString().includes("@")) {
+        console.log("Please enter a valid email Address");
+        return false;
+    }
    
     if(!queryType) {
         console.log("please select a query Type");
