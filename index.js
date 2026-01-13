@@ -9,14 +9,14 @@ form.addEventListener("submit",(event)=>{
 
    const isValidForm = checkValidation();
 
-   if(!isValidForm) return; 
+   if(!isValidForm) return;
     
    displayToast();
 })
 
 function checkValidation() {
 
-    if(!firstname) {
+    if(!firstName) {
         console.log("firstName does not exists");
         return false;
     }
@@ -24,14 +24,15 @@ function checkValidation() {
         console.log("lastName does not exists");
         return false;
     }
-    if(!emailAddress.includes("@")) {
-        console.log("Please enter a valid email Address");
-        return false;
-    }
-    if(!emailAddress) {
+     if(!emailAddress) {
         console.log("email does not exists");
         return false;
     }
+    // if(!emailAddress.includes("@")) {
+    //     console.log("Please enter a valid email Address");
+    //     return false;
+    // }
+   
     if(!queryType) {
         console.log("please select a query Type");
         return false;
@@ -46,5 +47,9 @@ function checkValidation() {
     }
 
     return true;
+
+}
+
+function displayToast() {
 
 }
