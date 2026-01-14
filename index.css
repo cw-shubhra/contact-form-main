@@ -25,10 +25,12 @@ textarea {
 
 input[type="radio"] {
     accent-color: hsl(169,82%,27%);
+    cursor: pointer;
 }
 
 input[type="checkbox"] {
      accent-color: hsl(169,82%,27%);
+     cursor: pointer;
 }
 
 input:focus-visible,
@@ -62,7 +64,6 @@ h2{
 }
 
 .name-container {
-    
     display: flex;
     justify-content: space-between;
 }
@@ -171,4 +172,30 @@ textarea.error {
   font-size: 12px;
   color: red;
   margin-top: 4px;
+}
+
+
+@media screen and (max-width:660px) {
+    .form-container{
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .form-container {
+        height: 95%;
+        max-height: 100%;
+        margin-top: 50px;
+        width: 80%;
+    }
+    .name-container{
+        display: block;
+    }
+    .name-field{
+        width: 100%;
+    }
+    .radio-card-container{
+        flex-direction: column;
+
+    }
 }
