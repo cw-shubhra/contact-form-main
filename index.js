@@ -1,9 +1,15 @@
 const form = document.getElementById("form");
-const firstName = document.getElementById("firstName");
-const lastName = document.getElementById("lastName");
-const emailAddress = document.getElementById("email");
-const consent = document.getElementById("consent");
-const message = document.getElementById("message");
+
+const fields = {
+  firstName: document.querySelector("#firstName"),
+  lastName: document.querySelector("#lastName"),
+  email: document.querySelector("#email"),
+  message: document.querySelector("#message"),
+  consent: document.querySelector("#consent"),
+  queryType: document.querySelectorAll('input[name="queryType"]:checked')
+};
+
+const siblingElement = document.querySelector(".radio-card-container");
 
 form.addEventListener("submit",(event)=>{
    event.preventDefault();
@@ -16,64 +22,56 @@ form.addEventListener("submit",(event)=>{
 })
 
 function checkValidation() {
-    const firstNameValue = firstName.value;
-    const lastNameValue = lastName.value;
-    const email = emailAddress.value;
-    const consentCheck = consent.checked;
-    const messageValue = message.value;
+  let isValid = true;
 
-    if(!firstNameValue) {
-        showError(firstName,"This field is required");
-        return false;
-    } else {
-        clearError(firstName);
-    }
+  if (!fields.firstName.value.trim()) {
+    showError(fields.firstName, "This field is required");
+    isValid = false;
+  } else {
+    clearError(fields.firstName);
+  }
 
-    if(!lastNameValue) {
-        showError(lastName,"This field is required");
-        return false;
-    } else {
-        clearError(lastName);
-    }
+  if (!fields.lastName.value.trim()) {
+    showError(fields.lastName, "This field is required");
+    isValid = false;
+  } else {
+    clearError(fields.lastName);
+  }
 
-     if(!email) {
-        showError(emailAddress,"This field is required");
-        return false;
-    } else {
-        clearError(emailAddress);
-    }
+  if (!fields.email.value.trim()) {
+    showError(fields.email, "This field is required");
+    isValid = false;
+  } else if (!fields.email.value.includes("@")) {
+    showError(fields.email, "Please enter a valid email address");
+    isValid = false;
+  } else {
+    clearError(fields.email);
+  }
 
-    if(!email.includes("@")) {
-         showError(emailAddress,"Please Enter a valid email Address");
-        return false;
-    } else {
-        clearError(emailAddress)
-    }
-   
-    if(!queryType) {  
-        showError(queryType,"Please select a query type");
-        return false;
-    } else {
-        clearError(queryType)
-    }
+  if(!fields.queryType) {
+    showError(siblingElement, "please select a query type");
+    isValid = false;
+  } else {
+    clearError(siblingElement)
+  } 
 
-    if(!messageValue) {
-         showError(message,"This field is required");
-        return false;
-    } else {
-        clearError(message);
-    }
+  if (!fields.message.value.trim()) {
+    showError(fields.message, "This field is required");
+    isValid = false;
+  } else {
+    clearError(fields.message);
+  }
 
-    if(!consentCheck) {
-        showError(consent,"To submit this form, please consent to being contacted");
-        return false;
-    } else {
-        clearError(consent);
-    }
+  if (!fields.consent.checked) {
+    showError(fields.consent, "To submit this form, please consent to being contacted");
+    isValid = false;
+  } else {
+    clearError(fields.consent);
+  }
 
-    return true;
-
+  return isValid;
 }
+
 
 function displayToast(duration) {
     const toast = document.getElementById("toast");
@@ -83,28 +81,29 @@ function displayToast(duration) {
     },duration);
 }
 
-function showError(input,message) {
+function getGroup(input) {
+  return input.closest(".form-container");
+}
+
+
+function showError(input, message) {
   input.classList.add("error");
 
-     
-  if (input.nextElementSibling?.classList.contains("error-message")) {
-    input.nextElementSibling.textContent = message;
-    return;
-  }
+  const errorSpan = input.nextElementSibling;
+  if (!errorSpan || !errorSpan.classList.contains("error-message")) return;
 
- 
-  const errorSpan = document.createElement("span");
-  errorSpan.className = "error-message";
   errorSpan.textContent = message;
-
-  
-  input.insertAdjacentElement("afterend", errorSpan);
+  errorSpan.style.display = "block";
 }
 
 function clearError(input) {
   input.classList.remove("error");
 
-  if (input.nextElementSibling?.classList.contains("error-message")) {
-    input.nextElementSibling.remove();
-  }
+  const errorSpan = input.nextElementSibling;
+  if (!errorSpan || !errorSpan.classList.contains("error-message")) return;
+
+  errorSpan.style.display = "none";
 }
+
+
+

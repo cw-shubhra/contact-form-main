@@ -23,15 +23,18 @@
       <div class="field name-field">
       <label for="firstName">First Name <span aria-hidden="true">*</span></label>
       <input type="text"  class="text-input" id="firstName">
+      <span class="error-message"></span>
       </div>
      <div class="field name-field">
        <label for="lastName">last Name <span aria-hidden="true">*</span></label>
       <input type="text"  class="text-input" id="lastName">
+       <span class="error-message"></span>
      </div>
     </div>
     <div class="field">
       <label for="email">Email Address <span aria-hidden="true">*</span></label>
        <input type="text"  class="text-input" id="email">
+        <span class="error-message"></span>
     </div>
    <fieldset class="radio-group" id="queryType">
   <label>Query Type <span>*</span></label>
@@ -47,18 +50,28 @@
     <span style= "color: #5f6566">Support Request</span>
   </label>
     </div>
+     <span class="error-message"></span>
    </fieldset>
 
    <div class="field">
     <label for="message">Message <span aria-hidden="true">*</span></label>
     <textarea id="message" rows="7" name="message" 
     ></textarea>
+     <span class="error-message"></span>
    </div>
-    
-  <label class="consent-label">
+   
+   <div class="consent-container">
+    <div>
+       <label class="consent-label">
      <input type="checkbox" id="consent" name="consent" >
     I consent to being contracted by the team
+    </div>
+    <div>
+       <span class="error-message"></span>
+    </div>
   </label>
+   </div>
+ 
   <button type="submit" class="submit-btn">Submit</button>
   </form>
 
