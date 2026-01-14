@@ -2,7 +2,8 @@ const form = document.getElementById("form");
 const firstName = document.getElementById("firstName");
 const lastName = document.getElementById("lastName");
 const emailAddress = document.getElementById("email");
-const queryType = document.getElementById("queryType");
+const consent = document.getElementById("consent");
+const message = document.getElementById("message");
 
 form.addEventListener("submit",(event)=>{
    event.preventDefault();
@@ -11,45 +12,99 @@ form.addEventListener("submit",(event)=>{
 
    if(!isValidForm) return;
     
-   displayToast();
+   displayToast(3000);
 })
 
 function checkValidation() {
+    const firstNameValue = firstName.value;
+    const lastNameValue = lastName.value;
+    const email = emailAddress.value;
+    const consentCheck = consent.checked;
+    const messageValue = message.value;
 
-    if(!firstName) {
-        console.log("firstName does not exists");
+    if(!firstNameValue) {
+        showError(firstName,"This field is required");
         return false;
+    } else {
+        clearError(firstName);
     }
-    if(!lastName) {
-        console.log("lastName does not exists");
+
+    if(!lastNameValue) {
+        showError(lastName,"This field is required");
         return false;
+    } else {
+        clearError(lastName);
     }
-     if(!emailAddress) {
-        console.log("email does not exists");
+
+     if(!email) {
+        showError(emailAddress,"This field is required");
         return false;
+    } else {
+        clearError(emailAddress);
     }
-    if(!emailAddress.toString().includes("@")) {
-        console.log("Please enter a valid email Address");
+
+    if(!email.includes("@")) {
+         showError(emailAddress,"Please Enter a valid email Address");
         return false;
+    } else {
+        clearError(emailAddress)
     }
    
-    if(!queryType) {
-        console.log("please select a query Type");
+    if(!queryType) {  
+        showError(queryType,"Please select a query type");
         return false;
+    } else {
+        clearError(queryType)
     }
-    if(!message) {
-        console.log("message does not exists");
+
+    if(!messageValue) {
+         showError(message,"This field is required");
         return false;
+    } else {
+        clearError(message);
     }
-    if(!consent) {
-        console.log("consent does not exists");
+
+    if(!consentCheck) {
+        showError(consent,"To submit this form, please consent to being contacted");
         return false;
+    } else {
+        clearError(consent);
     }
 
     return true;
 
 }
 
-function displayToast() {
+function displayToast(duration) {
+    const toast = document.getElementById("toast");
+    toast.classList.add("show");
+    setTimeout(()=>{
+        toast.classList.remove("show");
+    },duration);
+}
 
+function showError(input,message) {
+  input.classList.add("error");
+
+     
+  if (input.nextElementSibling?.classList.contains("error-message")) {
+    input.nextElementSibling.textContent = message;
+    return;
+  }
+
+ 
+  const errorSpan = document.createElement("span");
+  errorSpan.className = "error-message";
+  errorSpan.textContent = message;
+
+  
+  input.insertAdjacentElement("afterend", errorSpan);
+}
+
+function clearError(input) {
+  input.classList.remove("error");
+
+  if (input.nextElementSibling?.classList.contains("error-message")) {
+    input.nextElementSibling.remove();
+  }
 }

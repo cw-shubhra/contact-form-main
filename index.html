@@ -22,28 +22,28 @@
     <div class="name-container">
       <div class="field name-field">
       <label for="firstName">First Name <span aria-hidden="true">*</span></label>
-      <input type="text" required class="text-input" id="firstName">
+      <input type="text"  class="text-input" id="firstName">
       </div>
      <div class="field name-field">
        <label for="lastName">last Name <span aria-hidden="true">*</span></label>
-      <input type="text" required class="text-input" id="lastName">
+      <input type="text"  class="text-input" id="lastName">
      </div>
     </div>
     <div class="field">
       <label for="email">Email Address <span aria-hidden="true">*</span></label>
-       <input type="text" required class="text-input" id="email">
+       <input type="text"  class="text-input" id="email">
     </div>
    <fieldset class="radio-group" id="queryType">
   <label>Query Type <span>*</span></label>
 
     <div class="radio-card-container">
        <label class="radio-card">
-    <input type="radio" name="queryType" value="general" required >
+    <input type="radio" name="queryType" value="general"  >
     <span  style="color: #5f6566">General Enquiry</span>
   </label>
 
   <label class="radio-card">
-    <input type="radio" name="queryType" value="support" required >
+    <input type="radio" name="queryType" value="support"  >
     <span style= "color: #5f6566">Support Request</span>
   </label>
     </div>
@@ -51,18 +51,18 @@
 
    <div class="field">
     <label for="message">Message <span aria-hidden="true">*</span></label>
-    <textarea id="message" rows="7" name="message" required
+    <textarea id="message" rows="7" name="message" 
     ></textarea>
    </div>
     
   <label class="consent-label">
-     <input type="checkbox" id="consent" name="consent" required>
+     <input type="checkbox" id="consent" name="consent" >
     I consent to being contracted by the team
   </label>
   <button type="submit" class="submit-btn">Submit</button>
   </form>
 
-  <div class="toast">
+  <div class="toast" id="toast">
     <div class="toast-img-container">
       <img src="./assets/images/icon-success-check.svg">
       <p>Message Sent</p>
