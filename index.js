@@ -9,7 +9,7 @@ const fields = {
   queryType: document.querySelectorAll('input[name="queryType"]:checked')
 };
 
-const siblingElement = document.querySelector(".radio-card-container");
+const siblingElement = document.getElementsByClassName("radio-card-container");
 
 form.addEventListener("submit",(event)=>{
    event.preventDefault();
